@@ -11,7 +11,7 @@ function Base() {
     <>
       <div>
         <div className="secondnav">
-          <Link to="/login" className="nav-link-style24 mx-2" >Home</Link>
+          <Link to="/courses" className="nav-link-style24 mx-2" >Home</Link>
           <Link to="/error" className="nav-link-style2 mx-2">Courses</Link>
           <Link to="/contact" className="nav-link-style2 mx-2">Contact</Link>
           <Link to="/about" className="nav-link-style2 mx-2">About Us</Link>
