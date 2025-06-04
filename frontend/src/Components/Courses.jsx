@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Col, Row, Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import './../Css/Courses.css';
+import { FaBars } from 'react-icons/fa';
 
 import {
   FaUser, FaEnvelope, FaSignOutAlt, FaHome, FaBook,
@@ -133,7 +134,12 @@ const Courses = () => {
           ))}
         </Row>
       </div>
+      {/* Mobile Menu Button */}
+<button className="mobile-menu-btn d-lg-none" onClick={() => document.querySelector('.second').classList.toggle('show')}>
+  <FaBars />
+</button>
     </>
+    
   );
 };
 

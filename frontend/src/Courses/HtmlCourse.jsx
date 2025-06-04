@@ -306,6 +306,7 @@ const HtmlCourse = () => {
         <h2>{selectedTopic}</h2>
         {renderContent()}
       </div>
+      
     </div>
   );
 };

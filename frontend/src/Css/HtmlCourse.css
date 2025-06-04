@@ -48,3 +48,43 @@
   transform: scale(1.03);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
 }
+/* Existing styles remain the same */
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .hdiv {
+    display: none; /* Hide sidebar on mobile */
+  }
+  
+  .content-area {
+    width: 100%;
+  }
+  
+  .topic-section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Make sure all content is properly displayed */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .topic-section {
+    display: none; /* Hide all sections by default */
+  }
+  
+  .topic-section:first-child {
+    display: block; /* Show only the first section */
+  }
+  
+  /* When a topic is active, show it */
+  .topic-section.active {
+    display: block;
+  }
+}

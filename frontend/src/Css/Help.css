@@ -1,71 +1,209 @@
+/* Sidebar Navigation */
+.second {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(14, 109, 243, 0.807);
+  padding-top: 80px; /* Below navbar */
+  overflow-y: auto;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar Links */
+.nav-lii, .nav-liis, .mainli {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  padding: 12px 20px 12px 60px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.nav-lii:hover, .nav-liis:hover, .mainli:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mainli {
+  margin-top: 30px;
+}
+
+/* Logo in sidebar */
+.second img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: 60px;
+  margin-bottom: 30px;
+}
+
+/* Form Container */
 .form-container06 {
   background: white;
-  padding: 2rem 3rem;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  max-width: 600px;
- margin-left: 500px;
+  width: calc(100% - 300px);
+  margin-left: 280px;
+  margin-top: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .head2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #1a1a1a;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Form Elements */
+.form-group06 {
   margin-bottom: 1.5rem;
 }
 
-.form-group06 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.2rem;
-}
-
 .labell {
+  display: block;
   font-weight: 500;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
   color: #333;
 }
 
-.inputt[type="text"],
-.inputt[type="email"],
-.inputt[type="file"],
+.inputt,
 .selectt,
-.textareaa {
-  padding: 0.7rem;
+textarea {
+  width: 100%;
+  padding: 0.8rem;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.3s ease;
 }
 
-.inputt[readonly] {
-  background-color: #f0f0f0;
-}
-
-.textareaa {
-  min-height: 100px;
+textarea {
+  min-height: 120px;
   resize: vertical;
 }
 
 .inputt:focus,
-select:focus,
+.selectt:focus,
 textarea:focus {
   border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
+/* Submit Button */
 .button06 {
   background-color: #0d6efd;
   color: white;
   border: none;
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem 1.5rem;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-weight: 500;
 }
 
 .button06:hover {
   background-color: #084ec1;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .second {
+    width: 200px;
+  }
+  
+  .form-container06 {
+    width: calc(100% - 220px);
+    margin-left: 230px;
+    padding: 1.5rem;
+  }
+  
+  .nav-lii, .nav-liis, .mainli {
+    padding-left: 30px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .second {
+    width: 60px;
+    
+    overflow: hidden;
+  }
+  
+  .second:hover {
+    width: 200px;
+  }
+  
+  .nav-lii, .nav-liis, .mainli {
+    padding: 12px 15px;
+  }
+  
+  .nav-lii span, 
+  .nav-liis span,
+  .mainli span {
+    display: none;
+  }
+  
+  .second:hover .nav-lii span,
+  .second:hover .nav-liis span,
+  .second:hover .mainli span {
+    display: inline;
+  }
+  
+  .form-container06 {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+  
+  .second img {
+    margin-left: 30px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .second {
+    display: none;
+  }
+  
+  .form-container06 {
+    width: 100%;
+    margin: 20px 0;
+    padding: 1rem;
+    border-radius: 0;
+  }
+  
+  .head2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Mobile menu button */
+  .mobile-menu-btn {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    background-color: rgba(14, 109, 243, 0.807);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: none;
+  }
 }
