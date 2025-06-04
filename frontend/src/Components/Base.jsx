@@ -15,15 +15,15 @@ function Base() {
           <Link to="/error" className="nav-link-style2 mx-2">Courses</Link>
           <Link to="/contact" className="nav-link-style2 mx-2">Contact</Link>
           <Link to="/about" className="nav-link-style2 mx-2">About Us</Link>
-
-
-
-          <button type="submit" className='buton mainbtn' style={{marginRight:"-100px"}} onClick={() => { navigate('/login') }}>Login</button>
+          <div className='seb'>
+          <button type="submit" className='buton mainbtn'  onClick={() => { navigate('/login') }}>Login</button>
           <button type="submit" className='buton' onClick={() => { navigate('/register') }}>Register</button>
 
 
+        </div>
 
         </div>
+        
 
 
 
