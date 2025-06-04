@@ -35,9 +35,7 @@ function Base() {
               src="../images/12.png"
               alt="First slide"
             />
-            <Carousel.Caption>
-              <Button style={{ marginRight: "790px", marginBottom: "60px", backgroundColor: "white", color: "blue" }}>Explore more</Button>
-            </Carousel.Caption>
+         
 
           </Carousel.Item>
 
@@ -48,9 +46,7 @@ function Base() {
               src="../images/22.png"
               alt="Second slide"
             />
-            <Carousel.Caption>
-              <Button style={{ marginRight: "890px", marginBottom: "-29px", backgroundColor: "white", color: "blue", borderRadius: "12px" }}>Learn More</Button>
-            </Carousel.Caption>
+         
 
 
           </Carousel.Item>
