@@ -1,0 +1,51 @@
+.second {
+    float: inline-start;
+    flex-direction: column;
+    width: 250px;
+    background-color: rgba(14, 109, 243, 0.807);
+    height: 1400px;
+    display: flex;
+    justify-content: start;
+    position: fixed;
+
+
+}
+
+.nav-lii {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 60px;
+    text-decoration: none;
+    color: white;
+
+}
+
+.nav-liis {
+    font-size: 20px;
+    margin-top: 70px;
+    margin-left: 60px;
+    text-decoration: none;
+    color: white;
+
+
+}
+
+.mainli {
+    margin-top: 50px;
+    font-size: 20px;
+
+    margin-left: 60px;
+    text-decoration: none;
+    color: white;
+}
+
+.myrow {
+    margin-left: 270px;
+    margin-top: 5px;
+}
+
+
+.course-detail-container{
+    margin-left: 270px;
+    margin-top: 5px;
+}

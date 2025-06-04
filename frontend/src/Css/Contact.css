@@ -1,0 +1,82 @@
+
+.contact-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.contact-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+
+.contact-form label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-form .form-control {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+
+.contact-form .form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.contact-form .form-control.is-valid {
+  border-color: #28a745;
+}
+
+.contact-form .invalid-feedback,
+.contact-form .valid-feedback {
+  font-size: 0.9rem;
+}
+
+
+.contact-form .form-check-input {
+  margin-right: 10px;
+}
+
+.contact-form .form-check-label {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
+.submit-btn {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}

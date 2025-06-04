@@ -1,0 +1,158 @@
+
+.buton {
+    color:white;
+    border-radius: 10px;
+    background-color: rgba(36, 36, 237, 0.816);
+    border-color: rgba(245, 245, 249, 0.816);
+}
+.buton:hover{
+  background-color: rgb(106, 106, 252);
+
+}
+
+
+.dropdown-center {
+  display: flex;
+  background-color: whitesmoke;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nav-link-style {
+  color: rgb(16, 19, 195) !important;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 8px 16px;
+  border: none;
+ 
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+.nav-link-style2{
+ 
+  color: rgb(16, 19, 195) !important;
+  font-family:'arial';
+  font-size: 16px;
+  font-weight:60;
+  padding: 8px 16px;
+  border: none;
+  background: none !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+.nav-link-style24{
+ 
+  color: white !important;
+  font-family:'arial';
+  font-size: 16px;
+  font-weight:60;
+  padding: 8px 16px;
+  background-color: rgb(122, 122, 244);
+
+
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.flex-div{
+  display:flex;
+ 
+  
+}
+
+.caro{
+  height: 620px;
+  margin-top: 100px;
+  z-index: -1;
+
+}
+
+
+
+.ic{
+  width: 220vh;
+  height:100vh;
+}
+
+.footer {
+  background-color: #111827;
+  color: #d1d5db;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 100px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h2 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+.social-icons a {
+  color: #9ca3af;
+  font-size: 24px;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #9ca3af;
+  border-top: 1px solid #161617;
+  padding-top: 15px;
+}
+
+.secondnav {
+  position: fixed;
+  width: 100%;
+  
+  height:60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+ 
+}
+
