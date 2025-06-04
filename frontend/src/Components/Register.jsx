@@ -96,6 +96,9 @@ const Register = () => {
     return true;
   };
 
+  
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -123,66 +126,88 @@ const Register = () => {
     <div className='register-page'>
       <div className='register'>
         {successMsg && <div className="success-message">{successMsg}</div>}
-        <form className='register-grid' onSubmit={handleSubmit} encType="multipart/form-data">
+        <h2 className="register-title">Create Account</h2>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
 
-          <div className="icon-input"><FaUser className="icon" />
-            <input type='text' name="name" value={formData.name} onChange={handleChange} required placeholder='Full name' className='inpuR' />
+          <div className="form-group">
+            <div className="icon-input">
+              <FaUser className="icon" />
+              <input type='text' name="name" value={formData.name} onChange={handleChange} required placeholder='Full name' className='form-input' />
+            </div>
+
+            <div className="icon-input">
+              <FaUser className="icon" />
+              <input type='text' name="username" value={formData.username} onChange={handleChange} required placeholder='Username' className='form-input' />
+            </div>
           </div>
 
-          <div className="icon-input"><FaUser className="icon" />
-            <input type='text' name="username" value={formData.username} onChange={handleChange} required placeholder='Username' className='inpuR' />
+          <div className="form-group">
+            <div className="icon-input">
+              <FaLock className="icon" />
+              <input type='password' name="password" value={formData.password} onChange={handleChange} required placeholder='Password' className='form-input' />
+            </div>
+
+            <div className="icon-input">
+              <FaEnvelope className="icon" />
+              <input type='email' name="email" value={formData.email} onChange={handleChange} required placeholder='Email' className='form-input' />
+            </div>
           </div>
 
-          <div className="icon-input"><FaLock className="icon" />
-            <input type='password' name="password" value={formData.password} onChange={handleChange} required placeholder='Password' className='inpuR' />
-          </div>
+          <div className="form-group">
+            <div className="icon-input">
+              <FaBirthdayCake className="icon" />
+              <input type="date" name="dob" value={formData.dob} onChange={handleChange} required className='form-input' />
+            </div>
 
-          <div className="icon-input"><FaEnvelope className="icon" />
-            <input type='email' name="email" value={formData.email} onChange={handleChange} required placeholder='Email' className='inpuR' />
-          </div>
-
-          <div className="icon-input"><FaBirthdayCake className="icond" />
-            <input type="date" name="dob" value={formData.dob} onChange={handleChange} required className='inpuRd' />
-          </div>
-
-          <div className="icon-input"><FaPhone className="icon" />
-            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="Phone" className='inpuR' />
+            <div className="icon-input">
+              <FaPhone className="icon" />
+              <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="Phone" className='form-input' />
+            </div>
           </div>
 
           <div className="gender-input">
             <label>Gender:</label>
-            <label><input type='radio' name="gender" value="M" onChange={handleGenderChange} required /> M</label>
-            <label><input type='radio' name="gender" value="F" onChange={handleGenderChange} /> F</label>
+            <div className="gender-options">
+              <label><input type='radio' name="gender" value="M" onChange={handleGenderChange} required /> Male</label>
+              <label><input type='radio' name="gender" value="F" onChange={handleGenderChange} /> Female</label>
+            </div>
           </div>
 
-          <div className="icon-input"><FaUniversity className="icon" />
-            <input type='text' name="university" value={formData.university} onChange={handleChange} required placeholder='University' className='inpuR' />
+          <div className="form-group">
+            <div className="icon-input">
+              <FaUniversity className="icon" />
+              <input type='text' name="university" value={formData.university} onChange={handleChange} required placeholder='University' className='form-input' />
+            </div>
           </div>
 
-          <div className="icon-input"><FaBook className="icon" />
-            <select name="course" value={formData.course} onChange={handleChange} className='selectR' required>
-              <option value="">Course</option>
-              <option>CSE</option>
-              <option>ECE</option>
-              <option>CIVIL</option>
-              <option>AIML</option>
-              <option>IT</option>
-            </select>
-          </div>
+          <div className="form-group">
+            <div className="icon-input">
+              <FaBook className="icon" />
+              <select name="course" value={formData.course} onChange={handleChange} className='form-input' required>
+                <option value="">Course</option>
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>CIVIL</option>
+                <option>AIML</option>
+                <option>IT</option>
+              </select>
+            </div>
 
-          <div className="icon-input"><FaBook className="icon" />
-            <select name="year" value={formData.year} onChange={handleChange} className='selectR' required>
-              <option value="">Year</option>
-              <option>1st</option>
-              <option>2nd</option>
-              <option>3rd</option>
-              <option>4th</option>
-            </select>
+            <div className="icon-input">
+              <FaBook className="icon" />
+              <select name="year" value={formData.year} onChange={handleChange} className='form-input' required>
+                <option value="">Year</option>
+                <option>1st</option>
+                <option>2nd</option>
+                <option>3rd</option>
+                <option>4th</option>
+              </select>
+            </div>
           </div>
 
           <div className="file-input">
             <label className="upload-label"><FaImage /> Upload Profile Picture</label>
-            <input type="file" onChange={handleImageChange} />
+            <input type="file" onChange={handleImageChange} className="file-upload" />
             {image && <img src={URL.createObjectURL(image)} alt="Preview" className='img-preview' />}
           </div>
 
@@ -193,9 +218,9 @@ const Register = () => {
             </label>
           </div>
 
-          <div className='buttondiv'>
+          <div className='button-group'>
             <button type="submit" className="btn-submit">Register</button>
-            <button className="btn-submit" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Login</button>
+            <button type="button" className="btn-submit secondary" onClick={() => navigate('/login')}>Login</button>
           </div>
         </form>
       </div>

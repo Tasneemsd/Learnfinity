@@ -11,19 +11,20 @@ function Base() {
     <>
       <div>
         <div className="secondnav">
-          <Link to="/" className="nav-link-style24 mx-2" >Home</Link>
+          <Link to="/login" className="nav-link-style24 mx-2" >Home</Link>
           <Link to="/error" className="nav-link-style2 mx-2">Courses</Link>
           <Link to="/contact" className="nav-link-style2 mx-2">Contact</Link>
           <Link to="/about" className="nav-link-style2 mx-2">About Us</Link>
 
 
 
+          <button type="submit" className='buton mainbtn' style={{marginRight:"-100px"}} onClick={() => { navigate('/login') }}>Login</button>
+          <button type="submit" className='buton' onClick={() => { navigate('/register') }}>Register</button>
 
-          <button type="submit" className='buton' onClick={() => { navigate('/login') }}>Login</button>
-          <button type="submit" className='buton' style={{ marginLeft: "10px" }} onClick={() => { navigate('/register') }}>Register</button>
 
 
         </div>
+
 
 
       </div>
@@ -35,7 +36,7 @@ function Base() {
               src="../images/12.png"
               alt="First slide"
             />
-         
+
 
           </Carousel.Item>
 
@@ -46,7 +47,7 @@ function Base() {
               src="../images/22.png"
               alt="Second slide"
             />
-         
+
 
 
           </Carousel.Item>
