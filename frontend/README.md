@@ -30,7 +30,7 @@ Learnfinity is a full-stack MERN-based interactive e-learning platform built usi
 | React + Vite   | Node.js       | React-Bootstrap               |
 | React Router   | Express.js    | Monaco Editor                 |
 | Axios / Fetch  | MongoDB       | Vercel (Frontend Hosting)
-                                 | Render(Backend Hosting)       |
+|                |               | Render(Backend Hosting)       |
 
 ---
 
