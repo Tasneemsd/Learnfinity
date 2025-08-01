@@ -16,25 +16,30 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:4001/login', credentials, {
-        withCredentials: true,
-      });
+      const response = await axios.post(
+        "https://learnfinity-gcyw.onrender.com/login", 
+        credentials,
+        {
+          withCredentials: true,
+        }
+      );
 
-      console.log('Login response:', res.data);
+      console.log('Login response:', response.data);
 
-      // Save user data to localStorage
-      localStorage.setItem('user', JSON.stringify(res.data.user));
+     
+      localStorage.setItem('user', JSON.stringify(response.data));
 
-      // Navigate to Home with state
+      
       navigate('/home', {
         state: {
-          name: res.data.name,
-          image: res.data.profileImage,
+          name: response.data.name,
+          image: response.data.profileImage,
         },
       });
     } catch (err) {
-      console.error('Login failed:', err);
-      alert('Invalid credentials. Please try again.');
+      const message = err.response?.data?.error || 'Login failed. Please try again.';
+      console.error('Login error:', message);
+      alert(message);
     }
   };
 

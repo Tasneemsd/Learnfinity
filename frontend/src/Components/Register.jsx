@@ -96,9 +96,6 @@ const Register = () => {
     return true;
   };
 
-  
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -108,10 +105,14 @@ const Register = () => {
       Object.entries(formData).forEach(([key, value]) => form.append(key, value));
       if (image) form.append('profileImage', image);
 
-      const response = await axios.post("http://localhost:4001/register", form, {
-        withCredentials: true,
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
+      const response = await axios.post(
+        "https://learnfinity-gcyw.onrender.com/register",  // ✅ your live backend endpoint
+        form,
+        {
+          withCredentials: true,
+          headers: { 'Content-Type': 'multipart/form-data' }
+        }
+      );
 
       alert("Registration Successful");
       setSuccessMsg("Redirecting to login...");
@@ -128,13 +129,11 @@ const Register = () => {
         {successMsg && <div className="success-message">{successMsg}</div>}
         <h2 className="register-title">Create Account</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
-
           <div className="form-group">
             <div className="icon-input">
               <FaUser className="icon" />
               <input type='text' name="name" value={formData.name} onChange={handleChange} required placeholder='Full name' className='form-input' />
             </div>
-
             <div className="icon-input">
               <FaUser className="icon" />
               <input type='text' name="username" value={formData.username} onChange={handleChange} required placeholder='Username' className='form-input' />
@@ -146,7 +145,6 @@ const Register = () => {
               <FaLock className="icon" />
               <input type='password' name="password" value={formData.password} onChange={handleChange} required placeholder='Password' className='form-input' />
             </div>
-
             <div className="icon-input">
               <FaEnvelope className="icon" />
               <input type='email' name="email" value={formData.email} onChange={handleChange} required placeholder='Email' className='form-input' />
@@ -158,7 +156,6 @@ const Register = () => {
               <FaBirthdayCake className="icon" />
               <input type="date" name="dob" value={formData.dob} onChange={handleChange} required className='form-input' />
             </div>
-
             <div className="icon-input">
               <FaPhone className="icon" />
               <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="Phone" className='form-input' />

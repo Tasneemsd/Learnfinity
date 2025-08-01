@@ -41,19 +41,11 @@ const courses = [
     header: "Introduction to CSS"
   },
   { id: 3, title: 'JS', description: 'Learn more about JS', image: '../images/card3.png' },
-  { id: 4, title: 'React.js', description: 'Learn more about React.JS', image: '../images/card4.png' },
+  { id: 4, title: 'React', description: 'Learn more about React.JS', image: '../images/card4.png' },
   { id: 5, title: 'MongoDB', description: 'Learn more about MongoDB', image: '../images/card5.png' },
   { id: 6, title: 'SQL', description: 'Learn more about SQL', image: '../images/card6.jpg' },
   { id: 7, title: 'Python', description: 'Learn more about Python', image: '../images/card7.jpg' },
   { id: 8, title: 'AWS', description: 'Learn more about AWS', image: '../images/card8.png' },
-  { id: 9, title: 'Android', description: 'Learn more about Android', image: '../images/card9.jpg' },
-  { id: 10, title: 'Kotlin', description: 'Learn more about Kotlin', image: '../images/card10.jpg' },
-  { id: 11, title: 'PHP', description: 'Learn more about PHP', image: '../images/card11.png' },
-  { id: 12, title: 'Node.js', description: 'Learn more about Node.js', image: '../images/card12.png' },
-  { id: 13, title: 'Java', description: 'Learn more about Java', image: '../images/card13.png' },
-  { id: 14, title: 'C', description: 'Learn more about C', image: '../images/card14.png' },
-  { id: 15, title: 'C++', description: 'Learn more about C++', image: '../images/card15.jpg' },
-  { id: 16, title: 'Bootstrap', description: 'Learn more about Bootstrap', image: '../images/card16.jpg' }
 ];
 
 const Courses = () => {
