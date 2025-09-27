@@ -32,12 +32,9 @@ const Profile = ({ user: userData }) => {
       if (storedUser && storedUser !== "undefined") {
         try {
           setUser(JSON.parse(storedUser));
-          console.log("Loaded user from localStorage:", storedUser);
         } catch (error) {
           console.error("Failed to parse user from localStorage", error);
         }
-      } else {
-        console.warn("No valid user found in localStorage");
       }
     }
   }, [userData]);
@@ -47,12 +44,20 @@ const Profile = ({ user: userData }) => {
   }
 
   return (
-    <>
-      <div className="second-2">
+    <div className="profile-container" style={{ display: 'flex', minHeight: '100vh' }}>
+      {/* Sidebar */}
+      <div className="sidebar" style={{
+        width: '220px',
+        backgroundColor: '#f5f5f5',
+        padding: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
         <img
           src="../images/lo.png"
-          style={{ borderRadius: "50%", width: "100px", height: "100px", marginLeft: "80px", marginTop: "40px" }}
           alt="Logo"
+          style={{ borderRadius: "50%", width: "100px", height: "100px", marginBottom: "30px" }}
         />
         <Link to="/" className="navliis"><FaHome /> Home</Link>
         <Link to="/courses" className="navlii"><FaBook /> Courses</Link>
@@ -60,54 +65,57 @@ const Profile = ({ user: userData }) => {
         <Link to="/edit" className="navlii"><FaEdit /> Editor</Link>
         <Link to="/contact" className="navlii"><FaEnvelope /> Contact</Link>
         <Link to="/profile" className="navlii"><FaUser /> Profile</Link>
-        <Link to="/logout" className="main-li"><FaSignOutAlt /> Logout</Link>
+        <Link to="/logout" className="main-li" style={{ marginTop: 'auto' }}><FaSignOutAlt /> Logout</Link>
       </div>
 
-      <div className="p-4 grid gap-6 md:grid-cols-2">
-        <div className="bg-white rounded-2xl p-4 shadow">
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={pieData}
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                dataKey="value"
-                label
-              >
-                {pieData.map((entry, index) => (
-                  <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
+      {/* Main Content */}
+      <div className="main-content" style={{ flex: 1, padding: '20px' }}>
+        {/* Charts */}
+        <div className="charts-grid" style={{ display: 'grid', gap: '20px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+          <div className="bg-white rounded-2xl p-4 shadow">
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  dataKey="value"
+                  label
+                >
+                  {pieData.map((entry, index) => (
+                    <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="bg-white rounded-2xl p-4 shadow">
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={barData}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="score" fill="#8884d8" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-4 shadow">
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={barData}>
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="score" fill="#8884d8" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      <div className="profile-details">
-        <h1 style={{ textAlign: "center", marginTop: "30px" }}>{user.name}'s Profile</h1>
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        {/* Profile Details */}
+        <div className="profile-details" style={{ marginTop: '40px', textAlign: 'center' }}>
+          <h1>{user.name}'s Profile</h1>
           <img
-            src={`http://localhost:4001/uploads/${user.profileImage}`}
+            src={`https://learnfinity-gcwy.onrender.com/uploads/${user.profileImage}`}
             alt="Profile"
-            style={{ borderRadius: "50%", width: "150px", height: "150px" }}
+            style={{ borderRadius: '50%', width: '150px', height: '150px', marginTop: '20px' }}
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
