@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -16,7 +17,10 @@ const MongoDB_Url = process.env.MongoDB_Url;
 
 // ✅ CORS for both local & deployed frontend
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://learnfinity-theta.vercel.app'],
+  origin: [
+    'http://localhost:5173',     // local frontend
+    'https://learnfinity-theta.vercel.app' // deployed frontend
+  ],
   credentials: true
 }));
 
@@ -30,7 +34,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // ✅ Connect to MongoDB
 mongoose.connect(MongoDB_Url)
   .then(() => console.log(`✅ MongoDB connected at ${MongoDB_Url}`))
-  .catch(err => console.error("❌ MongoDB connection error:", err));
+  .catch(err => console.error("❌ MongoDB connection error:", err.message));
 
 // ✅ Multer image upload config
 const storage = multer.diskStorage({
@@ -40,20 +44,31 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
-// ✅ REGISTER ROUTE
+// In server.js (register route)
 app.post('/register', upload.single('profileImage'), async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    const existingUser = await User.findOne({ username });
+    const { name, username, email, password, dob, phone, gender, university, course, year } = req.body;
 
+    if (!username || !email || !password) {
+      return res.status(400).json({ error: "Username, email and password are required" });
+    }
+
+    const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(409).json({ error: "Username already exists" });
     }
 
     const newUser = new User({
+      name,
       username,
       email,
       password,
+      dob,
+      phone,
+      gender,
+      university,
+      course,
+      year,
       profileImage: req.file ? req.file.filename : null
     });
 
@@ -65,7 +80,7 @@ app.post('/register', upload.single('profileImage'), async (req, res) => {
       profileImage: newUser.profileImage
     });
   } catch (err) {
-    console.error("❌ Registration error:", err);
+    console.error("❌ Registration error:", err.message);
     res.status(500).json({ error: "Registration failed" });
   }
 });
@@ -103,7 +118,7 @@ app.post('/login', async (req, res) => {
       profileImage: user.profileImage
     });
   } catch (err) {
-    console.error('❌ Login error:', err);
+    console.error('❌ Login error:', err.message);
     res.status(500).json({ error: 'Something went wrong. Please try again later.' });
   }
 });
@@ -116,7 +131,8 @@ app.get('/home', authMiddleware, (req, res) => {
     profileImage: req.user.profileImage
   });
 });
-// Backend: Add this route
+
+// ✅ TEST ROUTE
 app.get('/api/data', (req, res) => {
   res.json({ message: "Sample Data" });
 });
